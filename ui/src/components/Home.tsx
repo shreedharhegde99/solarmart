@@ -3,7 +3,6 @@ import { useState } from "react";
 export default function Home() {
   const [trans, setTrans] = useState(0);
   const transChange = (val: number) => {
-    console.log("DEBUG", trans);
     if (trans < -1500) {
       setTrans(0);
       return;
@@ -19,7 +18,7 @@ export default function Home() {
           Welcome to <span className="text-2xl text-red-500"> Solarmart</span>
         </h1>
       </div>
-      <div className="relative w-screen overflow-hidden">
+      <div className="relative mx-auto max-w-screen-xl overflow-hidden">
         <div
           className="flex max-h-60 transition-all"
           style={{ translate: `${trans}px` }}

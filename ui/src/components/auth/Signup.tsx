@@ -48,7 +48,7 @@ export default function Signup() {
 	};
 
 	return (
-		<div className="mx-auto mt-2 border p-4 lg:w-1/4">
+		<div className="mx-auto mt-2 border p-4 lg:w-1/2 xl:w-1/4">
 			<form ref={formref} onSubmit={handleSignup}>
 				<h4 className="text-center text-lg">Create Account</h4>
 				<div className="mt-2 grid gap-2">
