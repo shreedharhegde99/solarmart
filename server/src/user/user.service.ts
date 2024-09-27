@@ -2,12 +2,17 @@ import { Injectable, Res } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Response } from 'express';
+import { AuthUserDto } from './dto/auth-user.dto';
 
 @Injectable()
 export class UserService {
   constructor() {}
   create(createUserDto: CreateUserDto, res: Response) {
     res.send({ message: 'Signup successful' });
+  }
+
+  login(userDto: AuthUserDto, res: Response) {
+    res.send({ message: 'Login Successful' });
   }
 
   findAll() {

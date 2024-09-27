@@ -12,6 +12,7 @@ import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { Response } from 'express';
+import { AuthUserDto } from './dto/auth-user.dto';
 
 @Controller('user/')
 export class UserController {
@@ -22,9 +23,9 @@ export class UserController {
     return this.userService.create(createUserDto, res);
   }
 
-  @Get()
-  findAll() {
-    return this.userService.findAll();
+  @Post('login')
+  loginUser(@Body() userDto: AuthUserDto, @Res() res: Response) {
+    return this.userService.login(userDto, res);
   }
 
   @Get(':id')
