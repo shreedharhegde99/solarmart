@@ -4,7 +4,7 @@ import { lazy } from "react";
 
 const ProductsListingComponent = lazy(() => import("../products-listing"));
 const ProductPageComponent = lazy(() => import("../product-page"));
-const AboutUsPageComponent = lazy(() => import("../product-page"));
+const AboutUsPageComponent = lazy(() => import("../about-us-page"));
 const SignupPage = lazy(() => import("../signup-page"));
 const LoginPageComponent = lazy(() => import("../login-page"));
 const CheckoutPageComponent = lazy(() => import("../checkout-page"));
