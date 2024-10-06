@@ -14,7 +14,7 @@ export default function HomePageComponent() {
 								alt="Solar Panels"
 								className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
 								height="550"
-								src="/placeholder.svg"
+								src="https://i.imgur.com/BjV7HY1.jpg"
 								width="550"
 							/>
 							<div className="flex flex-col justify-center space-y-4">
