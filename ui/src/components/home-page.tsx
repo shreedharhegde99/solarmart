@@ -2,6 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Sun, Battery, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
+const featured = [
+	"https://res.cloudinary.com/dp3u41izk/image/upload/535_Wp_Dual_Glass_Bifacial_Module_04__44045_rckh0e.jpg",
+	"https://res.cloudinary.com/dp3u41izk/image/upload/v1728209367/01_10__01904.1720609560_u8ioj2.jpg",
+	"https://res.cloudinary.com/dp3u41izk/image/upload/v1728209723/335Wp_72_Cell_EDO_01__86196.1725017367_zo4rgr.jpg",
+];
 
 export default function HomePageComponent() {
 	return (
@@ -14,7 +19,7 @@ export default function HomePageComponent() {
 								alt="Solar Panels"
 								className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full lg:order-last lg:aspect-square"
 								height="550"
-								src="https://i.imgur.com/BjV7HY1.jpg"
+								src="https://res.cloudinary.com/dp3u41izk/image/upload/t_Banner 9:16/v1728283957/BjV7HY1_j1xjoj.jpg"
 								width="550"
 							/>
 							<div className="flex flex-col justify-center space-y-4">
@@ -28,8 +33,8 @@ export default function HomePageComponent() {
 									</p>
 								</div>
 								<div className="flex flex-col gap-2 min-[400px]:flex-row">
-									<Link to="/products">
-										<Button className="inline-flex h-10 items-center justify-center rounded-md bg-neutral-900 px-8 text-sm font-medium text-neutral-50 shadow transition-colors hover:bg-neutral-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-50/90 dark:focus-visible:ring-neutral-300">
+									<Link to="/products" className="w-full md:w-auto">
+										<Button className="inline-flex h-10 w-full items-center justify-center rounded-md bg-neutral-900 px-8 text-sm font-medium text-neutral-50 shadow transition-colors hover:bg-neutral-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-50/90 dark:focus-visible:ring-neutral-300 md:w-auto">
 											Shop Now
 										</Button>
 									</Link>
@@ -47,9 +52,9 @@ export default function HomePageComponent() {
 								<div key={i} className="group relative overflow-hidden rounded-lg shadow-lg">
 									<img
 										alt={`Solar Panel ${i}`}
-										className="h-60 w-full object-cover"
+										className="mx-auto h-96"
 										height="300"
-										src="/placeholder.svg"
+										src={featured[i - 1]}
 										width="400"
 									/>
 									<div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-4 transition-all group-hover:translate-y-0">
