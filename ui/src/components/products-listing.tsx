@@ -274,69 +274,70 @@ export default function ProductsListingComponent() {
 	return (
 		<div className="container mx-auto px-4 py-8">
 			<h1 className="mb-8 text-3xl font-bold">Solar Products</h1>
-
-			<div className="mb-8 flex flex-col items-start justify-between space-y-4 md:flex-row md:items-center md:space-x-4 md:space-y-0">
-				<div className="w-full md:w-1/3">
-					<Label htmlFor="category">Category</Label>
-					<Select value={selectedCategory} onValueChange={setSelectedCategory}>
-						<SelectTrigger id="category">
-							<SelectValue placeholder="Select category" />
-						</SelectTrigger>
-						<SelectContent>
-							{categories.map((category) => (
-								<SelectItem key={category} value={category}>
-									{category}
-								</SelectItem>
-							))}
-						</SelectContent>
-					</Select>
-				</div>
-
-				<div className="w-full md:w-1/3">
-					<Label htmlFor="sort">Sort by</Label>
-					<Select value={sortBy} onValueChange={setSortBy}>
-						<SelectTrigger id="sort">
-							<SelectValue placeholder="Sort by" />
-						</SelectTrigger>
-						<SelectContent>
-							<SelectItem value="name">Name</SelectItem>
-							<SelectItem value="priceLowToHigh">Price: Low to High</SelectItem>
-							<SelectItem value="priceHighToLow">Price: High to Low</SelectItem>
-						</SelectContent>
-					</Select>
-				</div>
-
-				<div className="w-full md:w-1/3">
-					<Label htmlFor="search">Search</Label>
-					<Input
-						id="search"
-						type="text"
-						placeholder="Search products..."
-						value={searchTerm}
-						onChange={(e) => setSearchTerm(e.target.value)}
-					/>
-				</div>
-			</div>
-
-			<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-				{filteredAndSortedProducts.map((product) => (
-					<div key={product.id} className="flex flex-col rounded-lg border p-4 shadow-sm">
-						<Link to={product?.name.split(" ").join("-").toLowerCase()}>
-							<div className="relative mb-4 h-48 w-full">
-								<img src={product.image} alt={product.name} className="rounded-md object-cover" />
-							</div>
-							<h2 className="mb-2 text-lg font-semibold">{product.name}</h2>
-							<p className="mb-1 text-sm text-gray-500">MRP: ${product.mrp.toFixed(2)}</p>
-							<p className="text-lg font-bold text-neutral-900 dark:text-neutral-50">
-								${product.price.toFixed(2)}
-								<span className="ml-2 text-sm font-normal text-gray-500">
-									Save ${(product.mrp - product.price).toFixed(2)}
-								</span>
-							</p>
-						</Link>
-						<Button className="mt-4 w-full">Add to Cart</Button>
+			<div className="no-scrollbar gap-2 overflow-y-scroll lg:h-[70vh] xl:flex">
+				<div className="sticky left-0 top-0 mb-8 flex flex-col items-start justify-between space-y-4 bg-white md:flex-row md:items-center md:space-x-4 md:space-y-0 lg:space-y-4 xl:w-1/4 xl:flex-col xl:items-stretch xl:justify-start xl:space-x-0">
+					<div className="w-full">
+						<Label htmlFor="category">Category</Label>
+						<Select value={selectedCategory} onValueChange={setSelectedCategory}>
+							<SelectTrigger id="category">
+								<SelectValue placeholder="Select category" />
+							</SelectTrigger>
+							<SelectContent>
+								{categories.map((category) => (
+									<SelectItem key={category} value={category}>
+										{category}
+									</SelectItem>
+								))}
+							</SelectContent>
+						</Select>
 					</div>
-				))}
+
+					<div className="w-full xl:w-auto">
+						<Label htmlFor="sort">Sort by</Label>
+						<Select value={sortBy} onValueChange={setSortBy}>
+							<SelectTrigger id="sort">
+								<SelectValue placeholder="Sort by" />
+							</SelectTrigger>
+							<SelectContent>
+								<SelectItem value="name">Name</SelectItem>
+								<SelectItem value="priceLowToHigh">Price: Low to High</SelectItem>
+								<SelectItem value="priceHighToLow">Price: High to Low</SelectItem>
+							</SelectContent>
+						</Select>
+					</div>
+
+					<div className="w-full xl:w-auto">
+						<Label htmlFor="search">Search</Label>
+						<Input
+							id="search"
+							type="text"
+							placeholder="Search products..."
+							value={searchTerm}
+							onChange={(e) => setSearchTerm(e.target.value)}
+						/>
+					</div>
+				</div>
+
+				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:w-full lg:grid-cols-3">
+					{filteredAndSortedProducts.map((product) => (
+						<div key={product.id} className="flex flex-col rounded-lg border p-4 shadow-sm">
+							<Link to={product?.name.split(" ").join("-").toLowerCase()}>
+								<div className="relative mb-4 h-48 w-full">
+									<img src={product.image} alt={product.name} className="rounded-md object-cover" />
+								</div>
+								<h2 className="mb-2 text-lg font-semibold">{product.name}</h2>
+								<p className="mb-1 text-sm text-gray-500">MRP: ${product.mrp.toFixed(2)}</p>
+								<p className="text-lg font-bold text-neutral-900 dark:text-neutral-50">
+									${product.price.toFixed(2)}
+									<span className="ml-2 text-sm font-normal text-gray-500">
+										Save ${(product.mrp - product.price).toFixed(2)}
+									</span>
+								</p>
+							</Link>
+							<Button className="mt-4 w-full">Add to Cart</Button>
+						</div>
+					))}
+				</div>
 			</div>
 
 			{filteredAndSortedProducts.length === 0 && <p className="mt-8 text-center text-gray-500">No products found.</p>}
