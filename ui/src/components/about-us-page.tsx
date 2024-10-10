@@ -84,7 +84,10 @@ export default function AboutUsPageComponent() {
 
 			<section className="grid items-center gap-8 md:grid-cols-2">
 				<div>
-					<img src="https://imgur.com/1yLiMI7.png" alt="Website Owner" />
+					<img
+						src="https://res.cloudinary.com/dp3u41izk/image/upload/v1728544031/XugJ0vp_xnh4hy.jpg"
+						alt="Website Owner"
+					/>
 				</div>
 				<div className="space-y-4">
 					<h2 className="text-2xl font-semibold">About Me</h2>
